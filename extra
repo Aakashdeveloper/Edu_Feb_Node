@@ -1,0 +1,92 @@
+https://code.visualstudio.com/download
+https://github.com/Aakashdeveloper
+
+Node Js
+
+Single thread 
+Non Blocking (its way it respond)
+Async        (way it handle request)
+I/O run over chrome v8 engine
+
+REPL
+Read Event Print Loop
+
+ code
+  ||
+  \/
+Machine Lang
+
+////////////////////////////
+open source> any body can contribute
+
+npm > node package manager
+
+JSON > JavaScript Object Notation
+[
+    {
+        "name":"John",
+        "city":"Paris"
+    },
+    {
+        "name":"Amit",
+        "city":"Amsterdam"
+    }
+]
+
+package.json
+>>>>>>>
+> Starting point to application
+> MetaData(name,description,version,author)
+> script(start,dev,test)
+> packages
+
+>>>>>>>>>>><<<<<<<<<<<<<<<
+Step to generate package.json
+>>>>>>>>>>><<<<<<<<<<<<<<<
+**NodeJs must be installed in system
+> go inside the folder using cmd/terminal
+> type npm init
+> answer all questions
+> type 'yes'
+
+<<<<<<<<<<<<
+packages
+>>>>>>>>>>>>>>>>
+local 
+    > local to the folder
+    > used in same folder/application
+dev
+    > local to the folder
+    > used in same folder/application
+    > we divide in category like this packages
+       is only used for development
+global
+    > installed in system independent of any folder
+    > it can be use by any application
+    > they don't add in packages.json
+    > need admin permission to installed
+    > only package we use for running application
+      or generating will go global
+
+>>>>> How to install local <<<<<<<<<<  
+> go inside folder where you want to install
+  using cmd/terminal
+> type npm i package name / npm install package name
+
+>>>>> How to install Dev <<<<<<<<<<  
+> go inside folder where you want to install
+  using cmd/terminal
+> type npm i package name --save-dev / npm install package name --save-dev
+
+>>>>> How to install Global <<<<<<<<<<  
+#window
+> run cmd as admin
+> npm i -g packagename
+
+#mac/linux
+> open terminal
+> sudo npm i -g packagename
+
+
+inbuilt nodeJs
+express
