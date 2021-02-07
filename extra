@@ -89,4 +89,20 @@ global
 
 
 inbuilt nodeJs
+os,fs,http
+
 express
+
+
+var a = 10
+var b = "my age is "+a
+"my age is 10"
+
+//es6
+var a = 10
+var b = `My age is ${a}`
+"my age is 10"
+
+nodemon
+npm i -g nodemon
+nodemon http.js

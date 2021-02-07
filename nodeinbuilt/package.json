@@ -1,0 +1,12 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "this is node api",
+  "main": "buffer.js",
+  "scripts": {
+    "start":"node staticapi.js",
+    "dev":"nodemon staticapi.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
