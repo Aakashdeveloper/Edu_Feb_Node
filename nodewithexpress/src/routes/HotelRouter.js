@@ -1,5 +1,6 @@
 var express = require('express');
 var hotelRouter= express.Router();
+
 var hotels = [
     {
       "_id": "1",
@@ -479,14 +480,23 @@ var hotels = [
     }
 ]
 
-hotelRouter.route('/')
-    .get((req,res) => {
-        res.send(hotels)
-    });
+function route(menu){
+  hotelRouter.route('/')
+  .get((req,res) => {
+    // for react/angular/view
+    // res.send(hotels)
+    // display through node
+    res.render('hotel',{title:'Hotel Page',hoteldata:hotels,menu:menu})
+  });
 
-hotelRouter.route('/details')
+  hotelRouter.route('/details')
     .get((req,res) => {
         res.send('Hotel Details')
     });
 
-module.exports = hotelRouter;
+    return hotelRouter
+}
+
+
+
+module.exports = route;

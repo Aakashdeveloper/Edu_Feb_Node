@@ -40,14 +40,21 @@ var city = [
     }
   ]
 
-cityRouter.route('/')
-  .get((req,res) => {
-      res.send(city)
-  })
 
-cityRouter.route('/details')
-  .get((req,res) => {
-      res.send('City Details')
-  })
+function router(menu){
+  cityRouter.route('/')
+    .get((req,res) => {
+        //res.send(city)
+        res.render('city',{title:'City Page',menu:menu})
+    })
 
-module.exports = cityRouter;
+  cityRouter.route('/details')
+    .get((req,res) => {
+        res.send('City Details')
+    })
+
+    return cityRouter
+
+}
+
+module.exports = router;
