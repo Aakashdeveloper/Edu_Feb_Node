@@ -106,3 +106,9 @@ var b = `My age is ${a}`
 nodemon
 npm i -g nodemon
 nodemon http.js
+
+
+C => post
+R => get
+U => put
+D => delete
