@@ -487,6 +487,6 @@ hotelRouter.route('/')
 hotelRouter.route('/details')
     .get((req,res) => {
         res.send('Hotel Details')
-    })
+    });
 
 module.exports = hotelRouter;

@@ -50,4 +50,4 @@ cityRouter.route('/details')
       res.send('City Details')
   })
 
-module.exports = cityRouter
+module.exports = cityRouter;
