@@ -1,0 +1,74 @@
+
+//start mongodb client
+> open cmd
+> go inside folder
+    c:/programmfile/mongodb/4.4/server/bin
+> mongo 
+
+#mac
+# for server
+> open terminal
+> mongod --dbpath data/db
+
+#for client
+> open terminal
+> mongo 
+
+Sql     |     nosql
+database      database
+tables        collections
+row           documents
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>> See all database
+show dbs
+
+>>> go inside db
+use database
+
+>>> go see collections
+show collections
+
+>>find all records
+db.collections.find().pretty()
+
+
+>>>>>Create dbs<<<<<<<
+use database
+
+use edufeb
+db.first.insert({name:"John"})
+
+_id > primary key 
+12 bytes
+> 4 bytes timestamp
+> 5 random value
+> 3 increment
+db.first.insert({_id:2,name:"keev"})
+
+db.first.insert(
+    [
+       {_id:2,name:"keev"},
+       {_id:3,name:"keev"},
+       {_id:4,name:"keev"} 
+    ]
+)
+
+db.hotels.find({_id:"15"})
+
+db.hotels.find({city:"4"})
+
+db.hotels.find({},{name:1,city:1})
+
+db.hotels.find({},{name:1,city:1,_id:0})
+
+db.hotels.find({city:"4"},{name:1,city:1,_id:0})
+
+db.hotels.find({city:"4"},{name:1,cost:1,_id:0})
+
+db.hotels.find({condition},{Projection})
+
+Select * from abc
+
+npm i mongodb

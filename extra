@@ -131,4 +131,53 @@ how to setup mongodb
 > go to root
 > make folder data/db
 
+
+sno | English | Hindi | computer
+ 1  |         | 80    |
+ 2  |   80    |       |
+ 3  |         |  80   |  70
+
+
+AccNo | Date | Amount | name
+
+var students = [
+    {
+        sn:1,
+        hindi:80
+    },
+    {
+        sn:2,
+        english:80
+    },
+    {
+        sn:3,
+        hindi:80,
+        comp:70
+    }
+]
+
+//start mongodb server
+#window
+> open cmd
+> go inside folder
+    c:/programmfile/mongodb/4.4/server/bin
+> mongodb (27017)
+
+//start mongodb client
+> open cmd
+> go inside folder
+    c:/programmfile/mongodb/4.4/server/bin
+> mongo 
+
+#mac
+# for server
+> open terminal
+> mongod --dbpath data/db
+
+#for client
+> open terminal
+> mongo 
+
+>>>>>>>>>>>>See all 
+
 https://www.mongodb.com/cloud/atlas/lp/try2-in?utm_source=google&utm_campaign=gs_apac_india_search_core_brand_atlas_desktop&utm_term=atlas%20mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624347&gclid=CjwKCAiA65iBBhB-EiwAW253W1LEqfkqTLTf5TkWwcgN7v6cMB9RQ6njnEpVTMXN-ZFlCiFsnEKa-xoCqSsQAvD_BwE
