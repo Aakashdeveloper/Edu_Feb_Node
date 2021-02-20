@@ -181,3 +181,11 @@ var students = [
 >>>>>>>>>>>>See all 
 
 https://www.mongodb.com/cloud/atlas/lp/try2-in?utm_source=google&utm_campaign=gs_apac_india_search_core_brand_atlas_desktop&utm_term=atlas%20mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624347&gclid=CjwKCAiA65iBBhB-EiwAW253W1LEqfkqTLTf5TkWwcgN7v6cMB9RQ6njnEpVTMXN-ZFlCiFsnEKa-xoCqSsQAvD_BwE
+
+CRUD
+> Create
+> Read
+> Update 
+> Delete
+
+npm i ejs cors express mongodb body-parser chai chai-http mocha

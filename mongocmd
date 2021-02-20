@@ -72,3 +72,48 @@ db.hotels.find({condition},{Projection})
 Select * from abc
 
 npm i mongodb
+
+//update
+db.first.update(
+    {_id:2},
+    {
+        $set:{
+            city:'Amsterdam'
+        }
+    }
+)
+
+//upsert=(update/insert)
+
+db.first.update(
+    {_id:3},
+    {
+        $set:{
+            name:'Kavin',
+            city:'Helsinki'
+        }
+    },
+    {
+        upsert:true
+    }
+)
+
+db.first.update(
+    {_id:"602a1d61eb97e60a642c2167"},
+    {
+        $set:{
+            name:'Bhumika',
+            city:'Helsinki'
+        }
+    },
+    {
+        upsert:true
+    }
+)
+
+////delete
+db.collectionname.remove({})
+
+db.first.remove({_id:3})
+
+db.collections.drop()
