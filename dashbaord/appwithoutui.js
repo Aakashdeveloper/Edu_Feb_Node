@@ -12,23 +12,10 @@ let col_name="users";
 app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json())
-// static file path
-app.use(express.static(__dirname+'/public'));
-// view file path
-app.set('views','./src/views');
-//view engine
-app.set('view engine','ejs');
 
 // healthCheck
-app.get('/health',(req,res) =>{
-    res.send("Health Ok")
-})
-
 app.get('/',(req,res) =>{
-    dbObj.collection(col_name).find().toArray((err,result) =>{
-        if(err) res.render('index',{data:'',err:err})
-        res.render('index',{data:result})
-    })
+    res.send("Health Ok")
 })
 
 // getUser
@@ -53,43 +40,24 @@ app.get('/users',(req,res) => {
 // getUserbyid
 app.get('/user/:id',(req,res) => {
     var Id  = mongo.ObjectId(req.params.id)
-    dbObj.collection(col_name).find({_id:Id}).toArray((err,result) =>{
+    dbObj.collection(col_name).find({isActive:true,_id:Id}).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
-});
+})
 
 app.get('/users1',async (req,res) => {
     let output = await dbObj.collection(col_name).find().toArray()
     res.send(output)
 })
 
-app.get('/new',(req,res) => {
-    res.render('admin')
-})
-
 // add users
 app.post('/addUser',(req,res) => {
     // console.log(req.body)
-    var data = {
-        "name":req.body.name,
-        "city":req.body.city,
-        "phone":req.body.phone,
-        "email":req.body.email,
-        "role":req.body.role?eq.body.role:'User',
-        "isActive":req.body.isActive?req.body.isActive:true
-    }
-    dbObj.collection(col_name).find({email:req.body.email},(err,result)=>{
-        if(result){
-            res.send('Email Already taken')
-        }else{
-            dbObj.collection(col_name).insert(data,(err,result) =>{
-                if(err) throw err;
-                //res.status(200).send('Data Added')
-                res.redirect('/')
-            })
-        }
-    })  
+    dbObj.collection(col_name).insert(req.body,(err,result) =>{
+        if(err) throw err;
+        res.status(200).send('Data Added')
+    })
 })
 
 // updateUser
@@ -104,7 +72,7 @@ app.put('/updateUser',(req,res)=>{
                 phone:req.body.phone,
                 email:req.body.email,
                 role:req.body.role,
-                isActive:req.body.isActive?req.body.isActive:true
+                isActive:req.body.isActive
             }
         },(err,result) => {
             if(err) throw err;

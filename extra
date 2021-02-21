@@ -189,3 +189,22 @@ CRUD
 > Delete
 
 npm i ejs cors express mongodb body-parser chai chai-http mocha
+
+JWT
+Redis
+websocket
+graphql
+Lambda
+OAuth with github
+ImageUpload
+Passport(oauth with google)(optional)
+Deployment
+> Heroku
+> Docker
+> ngix
+
+npm i express jsonwebtoken cors body-parser bcryptjs mongoose
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMzFkOGU0MDZjY2I3NzQ2NTk5OTA3MyIsImlhdCI6MTYxMzg4MDU3MiwiZXhwIjoxNjEzODg0MTcyfQ.BecPWedlgIVjtJm1aS_e0mKarghQT84xkAc9zlrUHjU
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMzFkOGI1MDZjY2I3NzQ2NTk5OTA3MiIsImlhdCI6MTYxMzg4MDYzNCwiZXhwIjoxNjEzODg0MjM0fQ.dg-ZnmPSG9L245rxQYyvM2TYFCmzMb6jE4REHAsFRtU
