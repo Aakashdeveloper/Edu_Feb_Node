@@ -53,8 +53,8 @@ const mutation = new GraphQLObjectType({
                 rating_text: {type:GraphQLString},
                 min_price:{type:GraphQLInt},
             },
-            resolve(parentValue,{id,name,city,locality,thumb,aggregate_rating,rating_text,min_price}){
-                return axios.post(`http://localhost:8900/products`,{id,name,city,locality,thumb,aggregate_rating,rating_text,min_price})
+            resolve(parentValue,{id,name,aggregate_rating}){
+                return axios.post(`http://localhost:8900/products`,{id,name,aggregate_rating})
                 .then((res) => res.data)
             }
         }
@@ -70,6 +70,11 @@ module.exports= new GraphQLSchema({
 {
   Movies(id:4){
    thumb
+  }
+}
+mutation {
+  addMovies(id: 8889, name: "GoGo", aggregate_rating: 3.5) {
+    id
   }
 }
 */
