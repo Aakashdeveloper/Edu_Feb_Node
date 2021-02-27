@@ -191,20 +191,45 @@ CRUD
 npm i ejs cors express mongodb body-parser chai chai-http mocha
 
 JWT
-Redis
-websocket
-graphql
-Lambda
 OAuth with github
 ImageUpload
-Passport(oauth with google)(optional)
+Redis
+graphql
+
+Passport(oauth with google)
 Deployment
 > Heroku
 > Docker
-> ngix
+> nginx
+
+websocket
+Lambda
+testing
+postgres with node(optional)
 
 npm i express jsonwebtoken cors body-parser bcryptjs mongoose
 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMzFkOGU0MDZjY2I3NzQ2NTk5OTA3MyIsImlhdCI6MTYxMzg4MDU3MiwiZXhwIjoxNjEzODg0MTcyfQ.BecPWedlgIVjtJm1aS_e0mKarghQT84xkAc9zlrUHjU
+https://docs.github.com/en/developers/apps/authorizing-oauth-apps
 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMzFkOGI1MDZjY2I3NzQ2NTk5OTA3MiIsImlhdCI6MTYxMzg4MDYzNCwiZXhwIjoxNjEzODg0MjM0fQ.dg-ZnmPSG9L245rxQYyvM2TYFCmzMb6jE4REHAsFRtU
+npm i ejs express express-fileupload body-parser
+
+https://redis.io/
+
+npm i express redis axios
+
+redis-server (6379)
+redis-cli
+
+KEYS *  /// all data
+get keyname  //save data
+set key value  //get data
+del keyname  //delete data
+FLUSHDB //delete all
+
+//////////
+dummy api
+/////////
+npm i -g  json-server
+json-server --watch db.json --port 8900
+
+npm i axios express express-graphql graphql 
