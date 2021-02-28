@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const port = 9800;
+const port = process.env.PORT||9800;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongourl = 'mongodb://localhost:27017';
+const mongourl = 'mongodb+srv://dev:mongo123@cluster0.f8vmc.mongodb.net/edureka?retryWrites=true&w=majority';
 let dbObj;
 let col_name="users";
 
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json())
 
 // healthCheck
-app.get('/',(req,res) =>{
+app.get('/health',(req,res) =>{
     res.send("Health Ok")
 })
 
@@ -126,7 +126,7 @@ app.delete('/deleteUser',(req,res) =>{
 // Connection with mongo
 MongoClient.connect(mongourl,(err,connection)=>{
     if(err) throw err;
-    dbObj = connection.db('edufeb')
+    dbObj = connection.db('edureka')
 })
 
 app.listen(port,(err) => {

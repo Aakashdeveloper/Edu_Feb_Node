@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 9800;
+const port = process.env.PORT||9800;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongo = require('mongodb');
@@ -21,7 +21,7 @@ app.set('view engine','ejs');
 
 // healthCheck
 app.get('/health',(req,res) =>{
-    res.send("Health Ok")
+    res.status(200).send("Health Ok")
 })
 
 app.get('/',(req,res) =>{

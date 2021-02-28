@@ -195,17 +195,19 @@ OAuth with github
 ImageUpload
 Redis
 graphql
-
 Passport(oauth with google)
 Deployment
 > Heroku
+testing
+
 > Docker
 > nginx
-
 websocket
 Lambda
-testing
 postgres with node(optional)
+oo_nodejs
+login with express-session
+
 
 npm i express jsonwebtoken cors body-parser bcryptjs mongoose
 
@@ -233,3 +235,9 @@ npm i -g  json-server
 json-server --watch db.json --port 8900
 
 npm i axios express express-graphql graphql 
+
+http://www.passportjs.org/docs/google/
+
+npm i ejs express express-session passport
+
+npm i @babel/core @babel/register @babel/preset-env

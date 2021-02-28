@@ -1,5 +1,6 @@
-var express = require('express');
-var request = require('request');
+//var express = require('express');var request = require('request');
+import express from 'express';
+import request from 'request';
 let app = express();
 let port = process.env.PORT || 7899;
 
