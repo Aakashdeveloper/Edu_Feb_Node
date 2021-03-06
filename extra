@@ -199,14 +199,16 @@ Passport(oauth with google)
 Deployment
 > Heroku
 testing
-
+oo_nodejs
+Lambda
 > Docker
 > nginx
-websocket
-Lambda
-postgres with node(optional)
-oo_nodejs
 login with express-session
+
+
+websocket
+postgres with node(optional)
+
 
 
 npm i express jsonwebtoken cors body-parser bcryptjs mongoose
@@ -240,4 +242,14 @@ http://www.passportjs.org/docs/google/
 
 npm i ejs express express-session passport
 
-npm i @babel/core @babel/register @babel/preset-env
+npm i @babel/core @babel/register @babel/preset-env express mongodb
+
+
+npm i @sendgrid/mail
+
+
+docker build . -t edufeb
+docker run -p 9000:8900 edufeb
+
+
+npm i express express-session mongod

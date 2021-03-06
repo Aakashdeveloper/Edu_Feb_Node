@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+    </head>
+    <body>
+        <div class="container">
+            <center>
+                <h2>Users</h2>
+            </center>
+            <hr/>
+            <a href="/logout" class="btn btn-danger">Logout</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Active</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for(i=0;i<data.length;i++){%>
+                        <tr>
+                            <td><%=data[i].name%></td>
+                            <td><%=data[i].email%></td>
+                            <td><%=data[i].role%></td>
+                            <td><%=data[i].isActive%></td>
+                            <td>
+                                <button type="button" class="edit btn btn-info btn-lg" data-toggle="modal" data-target="#myedit"
+                                id="<%=data[i]._id%>">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                </button>
+                                <a href="/deletePost/<%=data[i]._id%>" class="btn btn-info btn-lg">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    <%}%>
+                </tbody>
+            </table>
+
+            <!-- Modal -->
+            <div id="myedit" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Users</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/edit" method="POST" id="update_user">
+                            <input type="text" readonly class="form-control" id="update_id" name="_id"/>
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" id="update_name"
+                                name="name" required/>
+                                <label for="name">Email:</label>
+                                <input type="text" class="form-control" id="update_email"
+                                name="email" required/>
+                                <label for="name">Type:</label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="update_type"
+                                    name="update_type" value="user"/>
+                                    User
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="update_type"
+                                    name="update_type" value="Admin"/>
+                                    Admin
+                                </label>
+                                <div>
+                                    <label for="name">Active:</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" id="update_active"
+                                        name="update_active" value="true"/>
+                                        True
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" id="update_active"
+                                        name="update_active" value="false"/>
+                                        False
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" data-dismiss="modal" id="update_table">Update</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            
+                </div>
+            </div>
+        </div>
+        <script>
+            $('.edit').click(function(){
+                id=this.id
+                //console.log('id is '+id);
+                $.ajax({
+                    type:'get',
+                    url:`/usersbyid?id=${id}`,
+                    success:function(data){
+                        //console.log(data)
+                        $("#update_id").attr("value",data[0]._id);
+                        $("#update_name").attr("value",data[0].name);
+                        $("#update_email").attr("value",data[0].email);
+                        $('input[type=radio][value=' + data[0].role + ']').attr('checked', true);
+                        $('input[type=radio][value=' + data[0].isActive + ']').attr('checked', true);
+                        $("#update_active").attr("value",data[0].isActive);
+                    },
+                    error:function(){
+                        alert('No Data')
+                    }
+                })
+            })
+            
+            $(function(){
+                $('#update_table').on('click',function(e){
+                    var data = $('#update_user').serialize()
+                    console.log(">>>>",data);
+                    e.preventDefault();
+                    $.ajax({
+                        url:`/editUser`,
+                        type:'PUT',
+                        data:data,
+                        success:function(data){
+                            window.location.reload();
+                        },
+                        error:function(){
+                            alert('No Data')
+                        }
+                    })
+                })
+            })
+        </script>
+    </body>
+</html>

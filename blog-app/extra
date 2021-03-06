@@ -1,0 +1,14 @@
+login
+signup
+/ home
+post > add post
+get the post 
+edit(put) but only who have created it or admin
+delete only who have created it or admin
+
+npm i express ejs mongodb express-session body-parser
+
+cors
+
+
+

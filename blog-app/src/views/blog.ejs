@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Tech Blog</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Blog App</a>
+                  </div>
+                  <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                      <li class="active"><a href="/posts">Home</a></li>
+                      <li><a href="/addPost">Add Post</a></li>
+                      <% if(userdata.role=="Admin"){%>
+                      <li><a href="/allusers">Admin</a></li>
+                      <%}%>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+                      </ul>
+                  </div>
+                </div>
+            </nav>
+            <div class="row">
+                <% if(userdata.role=="Admin"){%>
+                <center>
+                    <h1>Hi <%=userdata.name%> Your are Admin</h1>
+                </center>
+                <%}else{%>
+                    <center>
+                        <h1>Hi <%=userdata.name%></h1>
+                    </center>
+                <%}%>
+                <div class="offset-md-5 col-md-5">
+                    <% for(i=0;i<postdata.length;i++){%>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1><%=postdata[i].title%></h1>
+                            <p><%=postdata[i].description%></p>
+                            <p>Created By: <%=postdata[i].name%></p>
+                        </div>
+                        <div class="col-md-6">
+                            <% if(postdata[i].name == userdata.name || userdata.role=="Admin"){%>
+                                <a href="/edit/<%=postdata[i]._id%>">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                </a>
+                                <a href="/deletePost/<%=postdata[i]._id%>">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            <%}%>
+                        </div>
+                    </div>
+                   
+
+                    <hr/>
+                    <%}%>
+                </div>
+            </div>
+            
+        </div>
+    </body> 
+</html>
